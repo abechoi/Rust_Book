@@ -1,11 +1,11 @@
 <div align="center">
 <h1>The Rust Programming Language</h1>
-<h2>My Summary of the [Rust Book](https://doc.rust-lang.org/book/title-page.html)</h2>
+<h2>My Summary of the Rust Book</h2>
 <p>By Abe Choi</p>
 </div>
 
 <p align="center">
-My Summary of the [Rust Book](https://doc.rust-lang.org/book/title-page.html) by Steve Klabnik and Carol Nichols.
+My Summary of the Rust Book: (https://doc.rust-lang.org/book/title-page.html) by Steve Klabnik and Carol Nichols.
 </p>
 
 1.  [Guessing Game](/guessing_game)
