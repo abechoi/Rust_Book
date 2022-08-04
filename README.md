@@ -10,7 +10,7 @@ My Summary of the Rust Book: (https://doc.rust-lang.org/book/title-page.html) by
 
 1.  [Guessing Game](/Guessing_Game)
 2.  [Control Flow](/Control_Flow)
-3.  [Section III](/Compendium/Section_III)
+3.  [Ownership](/Ownership)
 4.  [Section IV](/Compendium/Section_IV)
 5.  [Section V](/Compendium/Section_V)
 6.  [Section VI](/Compendium/Section_VI)
