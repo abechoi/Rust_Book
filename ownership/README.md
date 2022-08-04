@@ -28,21 +28,21 @@ Create a function that returns the first word of a string.
 ```
 fn first_word(s: &str) -> &str {
 
-    # convert String into bytes
+    // convert String into bytes
     let bytes = s.as_bytes();
 
-    # iter() creates an iterator over array of bytes
-    # enumerate() returns tuple with a pattern
+    // iter() creates an iterator over array of bytes
+    // enumerate() returns tuple with a pattern
     for (i, &item) in bytes.iter().enumerate() {
 
-        # compares value in bytes to a space in bytes
+        // compares value in bytes to a space in bytes
         if item == b' ' {
 
-            # return reference of s with a range from the beginning to the index where the space was found
+            // return reference of s with a range from the beginning to the index where the space was found
             return &s[..i];
         }
     }
-    # return the reference of s
+    // return the reference of s
     &s[..]
 }
 ```
