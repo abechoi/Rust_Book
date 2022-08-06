@@ -1,27 +1,28 @@
 <div align="center">
-<h1>Control Flow</h1>
-<h2>Chapter 3 of the Rust Book</h2>
+<h1>Structs</h1>
+<h2>Chapter 5 of the Rust Book</h2>
 <p>By Abe Choi</p>
 </div>
 
 <p align="center">
-This is a summary of Chapter 3, conditions and loops.
+This is a summary of Chapter 5, struct and mods. In this program, there is a "shapes" module with a "Rectangle" struct. To create a Rectangle type, use a constructor that takes 2 parameters for height and width, and calculates the area. Then create and call a print_squared method, to print out squares with the given dimensions.
 </p>
 
-1.  [Generate a Random Number](#Generate-a-Random-Number)
+
+1.  [Create a Module](#Create-a-Module)
 2.  [Create a String](#Create-a-String)
 3.  [Read Line into String](#Read-Line-into-String)
 4.  [Parse String into Number](#Parse-String-into-Number)
 5.  [Compare String and Input](#Compare-String-and-Input)
 
 
-## Generate a Random Number
+## Create a Module
 
-To use the rand crate, add it in the dependencies in `Cargo.toml` and run `cargo build`. Import crate with `use rand::Rng;`. Use `gen_range(1..=6)` to set a range for the random number, from 1, to and including 6.
-
+Create a shapes mod to store structs, implementation, and associated functions inside.
 ```
-// create a random number as a u8, from 1, to and including 6
-let secret_number: u8 = rand::thread_rng().gen_range(1..=6); 
+mod shapes {
+
+}
 ```
  
 ## Create a String
