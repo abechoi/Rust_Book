@@ -9,64 +9,105 @@ This is a summary of Chapter 5, struct and mods. In this program, there is a "sh
 </p>
 
 
-1.  [Create a Module](#Create-a-Module)
-2.  [Create a String](#Create-a-String)
-3.  [Read Line into String](#Read-Line-into-String)
-4.  [Parse String into Number](#Parse-String-into-Number)
-5.  [Compare String and Input](#Compare-String-and-Input)
+1.  [Overview](#Overview)
+2.  [Create a Struct](#Create-a-String)
+3.  [Create a Constructor](#Create-a-Constructor)
+4.  [Create a Function](#Create-a-Function)
 
 
-## Create a Module
+## Overview
 
 Create a shapes mod to store structs, implementation, and associated functions inside.
 ```
+use shapes::Rectangle;
+
 mod shapes {
 
+    #[derive(Debug)]
+    pub struct Rectangle {
+        pub height: u32,
+        pub width: u32,
+        pub area: u32,
+    }    
+
+    impl Rectangle {
+        pub fn new(height: u32, width: u32) -> Rectangle {
+            Rectangle {
+                height,
+                width,
+                area: height * width,
+            }
+        }
+    }
 }
 ```
  
-## Create a String
+## Create a Struct
 
-Create a new String to store input into. It has to be mutable to bind to the new incoming input.
-
+A struct holds attributes and its types.
 ```
-// create a new String
-let mut input = String::new();
-```
-
-## Read Line into String
-
-Import IO with `use std::io;`. Use `read_line(&mut input)` to read input into a String's address. `read_line()` returns a `Result` type, use `expect()` to handle any error `Result` may return.
-
-```
-// read line and store input into a String
-io::stdin().read_line(&mut input).expect("Invalid input!");
+#[derive(Debug)]
+pub struct Rectangle {
+    pub height: u32,
+    pub width: u32,
+    pub area: u32,
+}
 ```
 
-## Parse String into Number
-
-Parse String into a shadowing variable, trim to remove whitespaces and newline. `parse()` returns a `Result` type, which we will use match to respond accordingly. If there are no errors, `Ok(num)` returns the parsed number, else `Err(_)` returns `continue` to continue no matter the error.
-
+Create a variable of a struct:
 ```
-// trims and parses String into a shadowing variable
-let input = match input.trim().parse::<u8>() {
-    Ok(num) => num,
-    Err(_) => continue,
-};
+let rec = Rectangle {
+    height: 8,
+    width: 4,
+    area: 32,
+}
 ```
 
-## Compare String and Input
+## Create a Constructor
 
-Import `Ordering` with `use std::cmp::Ordering;`. Use `cmp()` to compare number with the random number's address. Use `match` function to create an output for anything the compare function may return. If match returns `Equals`, break out of loop.
+The new function can be used as a constructor for creating a struct, and can return calculations before the struct is returned to the variable assignment.
 
 ```
-// compare number and random number, output results accordingly using match function.
-match input.cmp(&secret_number) {
-    Ordering::Less => println!("Too low!"),
-    Ordering::Greater => println!("Too high!"),
-    Ordering::Equals => {
-        println!("You win!");
-        break;
+impl Rectangle {
+    pub fn new(height: u32, width: u32) -> Rectangle {
+        Rectangle {
+            height,
+            width,
+            area: height * width,
+        }
     }
 }
+```
+
+Create a variable of a struct, using new():
+```
+let rec = Rectangle::new(8, 4);
+```
+
+# Create a Function
+
+When creating a function within an implementation, always pass an argument of &self, a borrowed self, which is shorthand for self: &self. Variables will be called using dot notation, `self.width`.
+```
+pub fn print_squares(&self) {
+        
+    for i in 0..self.width {
+        print!(" _ ");
+
+        if self.width < 10 && i == self.width-1 {
+            break;
+        }
+    }
+    for i in 0..self.area {
+        if i % self.width == 0 {
+            println!();
+        }
+        
+        print!("|_|");
+    }
+}
+```
+
+Call function:
+```
+rec.print_squares();
 ```
