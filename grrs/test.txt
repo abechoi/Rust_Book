@@ -1,0 +1,4 @@
+A foo
+Actual content
+More content
+Another foo
